@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
     <meta content="Links to my various profiles online" name="description" />
-
+    <meta name="color-scheme" content="light dark" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
 
@@ -17,8 +17,20 @@
         background: white;
       }
 
+      @media (prefers-color-scheme: dark) {
+        body {
+          background: #364652;
+        }
+      }
+
       h1, p {
         color: #364652;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        h1, p {
+          color: #e6ecf0;
+        }
       }
 
       p {
@@ -56,22 +68,54 @@
         background: #B9D2DF;
       }
 
+      @media (prefers-color-scheme: dark) {
+        .link-tree > li:nth-child(1) a {
+          background: #dfeaf0;
+        }
+      }
+
       .link-tree > li:nth-child(2) a {
         background: #9CC0D3;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .link-tree > li:nth-child(2) a {
+          background: #c8dde8;
+        }
       }
 
       .link-tree > li:nth-child(3) a {
         background: #659BB8;
       }
 
+      @media (prefers-color-scheme: dark) {
+        .link-tree > li:nth-child(3) a {
+          background: #9cc2d6;
+        }
+      }
+
       .link-tree > li:nth-child(4) a {
         background: #4D88A8;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .link-tree > li:nth-child(4) a {
+          background: #7fb6d4;
+        }
       }
 
       .link-tree > li a:hover,
       .link-tree > li a:focus {
         color: white;
         background: #2D4F62;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .link-tree > li a:hover,
+        .link-tree > li a:focus {
+          color: white;
+          background: #4d7e99;
+        }
       }
     </style>
   </head>
