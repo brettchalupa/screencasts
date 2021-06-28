@@ -14,4 +14,8 @@ class Blog
     @posts << post
     post
   end
+
+  def slug
+    ""
+  end
 end

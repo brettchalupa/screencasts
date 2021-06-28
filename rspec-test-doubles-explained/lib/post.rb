@@ -7,4 +7,8 @@ class Post
     @blog = blog
     @slug = title.downcase.gsub(" ", "-")
   end
+
+  def subdomain
+    @blog.subdomain
+  end
 end

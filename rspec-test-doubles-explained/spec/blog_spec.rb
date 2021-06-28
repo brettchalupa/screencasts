@@ -24,4 +24,10 @@ RSpec.describe Blog do
       expect(post.blog).to eql(subject)
     end
   end
+
+  describe "#slug" do
+    it "returns an empty string" do
+      expect(subject.slug).to eql("")
+    end
+  end
 end
