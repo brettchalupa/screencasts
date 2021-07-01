@@ -1,10 +1,10 @@
-# RSpec Stubbing and Mocking Explained
+# RSpec Stubbing & Mocking Explained
 
 A deep dive into behavior-driven testing with RSpec by mocking out stubbed objects in unit tests for a complex method that calls out to multiple constants and updates state.
 
-[Watch the screencast]()
+[Watch the screencast](https://www.youtube.com/watch?v=ciVXLf6YnUE)
 
-[Read the blog post]()
+[Read the blog post](https://code.brettchalupa.com/rspec-mocking-and-stubbing-explained)
 
 ## Dependency Versions
 
@@ -13,5 +13,5 @@ A deep dive into behavior-driven testing with RSpec by mocking out stubbed objec
 
 ## Links
 
-- [RSpec docs on doubles](https://relishapp.com/rspec/rspec-mocks/v/3-10/docs/basics/test-doubles)
-- [RSpec docs on verified instance_double](https://relishapp.com/rspec/rspec-mocks/docs/verifying-doubles/using-an-instance-double)
+- [RSpec docs on expecting messages](https://relishapp.com/rspec/rspec-mocks/v/3-10/docs/basics/expecting-messages)
+- [RSpec docs on returning a value](https://relishapp.com/rspec/rspec-mocks/v/3-10/docs/configuring-responses/returning-a-value)
