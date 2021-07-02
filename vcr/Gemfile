@@ -6,4 +6,6 @@ gem "puma", "~> 5.3"
 group :test do
   gem "rack-test", "~> 1.1.0"
   gem "rspec", "~> 3.10"
+  gem "vcr", "~> 6.0"
+  gem "webmock", "~> 3.13"
 end

@@ -1,17 +1,17 @@
-# RSpec Stubbing & Mocking Explained
+# Using VCR with RSpec
 
-A deep dive into behavior-driven testing with RSpec by mocking out stubbed objects in unit tests for a complex method that calls out to multiple constants and updates state.
+[Watch the screencast]()
 
-[Watch the screencast](https://www.youtube.com/watch?v=ciVXLf6YnUE)
-
-[Read the blog post](https://code.brettchalupa.com/rspec-mocking-and-stubbing-explained)
+[Read the blog post]()
 
 ## Dependency Versions
 
 - Ruby 2.7.3
 - RSpec 3.10.0
+- Sinatra 2.1.0
+- VCR 6.0.0
+- Webmock 3.13.0
 
 ## Links
 
-- [RSpec docs on expecting messages](https://relishapp.com/rspec/rspec-mocks/v/3-10/docs/basics/expecting-messages)
-- [RSpec docs on returning a value](https://relishapp.com/rspec/rspec-mocks/v/3-10/docs/configuring-responses/returning-a-value)
+- [Blog post by Fabio Perrella](https://fabioperrella.github.io/10_tips_to_help_using_the_VCR_gem_in_your_ruby_test_suite.html)
