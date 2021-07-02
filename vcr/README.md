@@ -1,8 +1,8 @@
 # Using VCR with RSpec
 
-[Watch the screencast]()
+[Watch the screencast](https://www.youtube.com/watch?v=DDyFfaauW8s)
 
-[Read the blog post]()
+[VCR source and README](https://github.com/vcr/vcr#vcr)
 
 ## Dependency Versions
 
