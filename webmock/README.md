@@ -1,8 +1,11 @@
 # Using Webmock with RSpec
 
-[Watch the screencast]()
+A guide on setting up and using Webmock for end-to-end and integration tests
+with RSpec to stub external API requests.
 
-[Read the blog post]()
+[Watch the screencast](https://www.youtube.com/watch?v=tQqr5GNZCFg)
+
+[Webmock docs and source](https://github.com/bblimke/webmock#webmock)
 
 ## Dependency Versions
 
