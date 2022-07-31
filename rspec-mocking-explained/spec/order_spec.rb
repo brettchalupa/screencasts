@@ -1,62 +1,103 @@
-require 'spec_helper'
+require "spec_helper"
+require "ostruct"
 
 RSpec.describe Order do
-  subject do
-    Order.new(
-      { state: :created,
-        payment_method: payment_method,
-        buyer_email: "buyer@example.com",
-        items: items }
-    )
+  subject { Order.new({}) }
+
+  describe :initialize do
+    let(:state) { :state }
+    let(:payment_method) { :payment_method }
+    let(:items) { :items }
+    let(:buyer_email) { :buyer_email }
+
+    subject do
+      Order.new(
+        {
+          state: state,
+          payment_method: payment_method,
+          items: items,
+          buyer_email: buyer_email,
+        },
+      )
+    end
+
+    it { expect(subject.state).to eq :state }
+    it { expect(subject.payment_method).to eq :payment_method }
+    it { expect(subject.items).to eq :items }
+    it { expect(subject.buyer_email).to eq :buyer_email }
+
+    context "when state is missing" do
+      let(:state) { nil }
+      it { expect(subject.state).to eq :created }
+    end
   end
 
-  let(:payment_method) { double("credit card") }
-  let(:items) { [double("item 1", total: 15.0), double("item 2", total: 5.0)] }
-
-  describe "#checkout" do
+  describe :checkout do
+    let(:process_payment_status) { :success }
     before do
-      expect(TaxCalculator).to receive(:calculate).with(subject) { 10.0 }
+      allow(subject).to receive(:process_payment_status).and_return process_payment_status
+      allow(subject).to receive(:send_mail)
     end
-
-    it "calls out to the payment gateway with the items' totals and tax" do
-      expect(PaymentGateway).to receive(:process_payment).with(30.0, payment_method) { :success }.ordered
-
+    it do
       subject.checkout
+      expect(subject.state).to eq :completed
+      expect(subject).to have_received(:send_mail)
     end
 
-    context "when the payment processes successfully" do
-      before do
-        allow(PaymentGateway).to receive(:process_payment) { :success }
-      end
-
-      it "sets the state to completed" do
+    context "not success" do
+      let(:process_payment_status) { :not_success }
+      it do
         subject.checkout
-
-        expect(subject.state).to eql(:completed)
+        expect(subject.state).to eq :payment_failed
+        expect(subject).not_to have_received(:send_mail)
       end
+    end
+  end
 
-      it "emails the buyer" do
-        expect(Mailer).to receive(:send_mail).with(:order_success, "buyer@example.com")
-
-        subject.checkout
+  describe :private do
+    describe :tax do
+      it do
+        allow(TaxCalculator).to receive(:calculate)
+        subject.send :tax
+        expect(TaxCalculator).to have_received(:calculate).with subject
       end
     end
 
-    context "when the payment processes unsuccessfully" do
+    describe :items_total do
       before do
-        allow(PaymentGateway).to receive(:process_payment) { :failure }
+        allow(subject).to receive(:items) {
+          [OpenStruct.new(total: 15.0), OpenStruct.new(total: 5.0)]
+        }
+      end
+      it { expect(subject.send :items_total).to eq 20 }
+    end
+
+    describe :process_payment_status do
+      before do
+        allow(PaymentGateway).to receive(:process_payment)
+        allow(subject).to receive(:tax) { 10 }
+        allow(subject).to receive(:items_total) { 20 }
+        allow(subject).to receive(:payment_method) { :payment_method }
       end
 
-      it "sets the state to payment_failed" do
-        subject.checkout
+      it do
+        subject.send :process_payment_status
+        expect(PaymentGateway).to have_received(:process_payment).with(
+          10 + 20,
+          :payment_method,
+        )
+      end
+    end
 
-        expect(subject.state).to eql(:payment_failed)
+    describe :send_mail do
+      before do
+        allow(Mailer).to receive(:send_mail)
+        allow(subject).to receive(:buyer_email) { :buyer_email }
       end
 
-      it "does not send the order success email" do
-        expect(Mailer).to_not receive(:send_mail)
-
-        subject.checkout
+      it do
+        subject.send :send_mail
+        expect(Mailer).to have_received(:send_mail).with(:order_success, :buyer_email)
       end
     end
   end
