@@ -1,5 +1,9 @@
 # spec_helper vs rails_helper
 
+A look into the difference between `require "spec_helper"` vs `require "rails_helper"` when using RSpec with Rails.
+
+[📺 Watch the screencast](https://youtu.be/UkctRoFvSuc)
+
 ## Performance
 
 ### spec_helper
