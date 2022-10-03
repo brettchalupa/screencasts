@@ -2,7 +2,7 @@
 
 Source code for my various screencasts videos. Each video has a dedicated directory for the code.
 
-[📺 Watch the screencasts on YouTube!](https://www.youtube.com/c/Monoso)
+[📺 Watch the screencasts on YouTube!](https://www.youtube.com/channel/UCQXaIyeRqHjK9EK41b8J3yQ)
 
 Additional links:
 
