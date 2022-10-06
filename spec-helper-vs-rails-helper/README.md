@@ -4,6 +4,8 @@ A look into the difference between `require "spec_helper"` vs `require "rails_he
 
 [📺 Watch the screencast](https://youtu.be/UkctRoFvSuc)
 
+[📖 Read the blog post](https://code.brettchalupa.com/spec_helper-vs-rails_helper-explained)
+
 ## Performance
 
 ### spec_helper
