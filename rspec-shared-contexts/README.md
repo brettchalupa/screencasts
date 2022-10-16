@@ -2,7 +2,7 @@
 
 A look at how to DRY up specs by extracting shared behaviors.
 
-[Watch the screencast]()
+[Watch the screencast](https://youtu.be/DEo-jQwqlas)
 
 ## Dependency Versions
 
