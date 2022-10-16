@@ -2,7 +2,7 @@
 
 A look at how to add methods that are then available in all fo your specs. Specifically showing an example on parsing a JSON string into a Ruby hash for making assertions.
 
-[Watch the screencast]()
+[Watch the screencast](https://youtu.be/qSwDOR4N2LM)
 
 ## Dependency Versions
 
