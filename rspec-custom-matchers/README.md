@@ -2,7 +2,7 @@
 
 TODO
 
-[Watch the screencast]()
+[Watch the screencast](https://youtu.be/1kL4yKR5TAs)
 
 ## Dependency Versions
 
@@ -11,4 +11,4 @@ TODO
 
 ## Links
 
-- [RSpec docs on including helper methods](https://relishapp.com/rspec/rspec-expectations/v/2-4/docs/custom-matchers/define-matcher#matcher-with-separate-logic-for-should-and-should-not)
+- [RSpec docs on defining custom matchers](https://relishapp.com/rspec/rspec-expectations/v/2-4/docs/custom-matchers/define-matcher)
